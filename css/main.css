@@ -26,6 +26,9 @@
 
     --font-main: "Segoe UI", sans-serif;
 
+    --font-welcome: "Dancing Script", cursive;
+    --font-phrases: "Cormorant Garamond", serif;
+
     --transition-normal: 0.4s ease;
 }
 
@@ -109,6 +112,9 @@ button:focus-visible {
 
     backdrop-filter: blur(12px);
     box-shadow: var(--shadow-purple);
+
+    font-family: var(--font-welcome);
+    font-weight: 600;
 }
 
 .welcome-subtitle {
@@ -201,21 +207,31 @@ button:focus-visible {
 }
 
 
-/* Área de flores */
+
+/* ========================================
+   RAMO DE FLORES
+======================================== */
 
 #flower-garden {
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 320px;
+}
 
+.bouquet-svg {
+    display: block;
     width: 100%;
-    max-width: 900px;
-    min-height: 350px;
+    max-width: 700px;
+    height: auto;
+    overflow: visible;
+}
 
-    border: 1px solid var(--color-border);
-    border-radius: 30px;
-
-    background: rgba(255, 255, 255, 0.025);
-
-    box-shadow: inset 0 0 50px rgba(167, 123, 218, 0.06);
+.bouquet-flower {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: flower-bloom 1.2s ease both;
 }
 
 
@@ -275,7 +291,10 @@ button:focus-visible {
 .phrase-card p {
     color: var(--color-text-soft);
     font-size: 1rem;
-    line-height: 1.7;
+    font-family: var(--font-phrases);
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.5;
 }
 
 /* ========================================
@@ -331,7 +350,7 @@ button:focus-visible {
 
 /* Control musical */
 
-.music-control {
+ .music-control {
     position: fixed;
     right: 1.5rem;
     bottom: 1.5rem;
@@ -356,6 +375,20 @@ button:focus-visible {
     background: rgba(167, 123, 218, 0.3);
 }
 
+.music-control.playing {
+    background: rgba(167, 123, 218, 0.3);
+    border-color: var(--color-purple-light);
+    box-shadow: 0 0 20px rgba(167, 123, 218, 0.25);
+}
+
+.music-control:active {
+    transform: scale(0.92);
+}
+
+.music-control:focus-visible {
+    outline: 2px solid var(--color-purple-light);
+    outline-offset: 4px;
+}
 
 /* Dedicatoria final */
 

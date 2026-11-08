@@ -56,6 +56,14 @@ function openGarden() {
     const initialPhrases = PhraseManager.getInitialBatch();
 
     renderPhrases(initialPhrases);
+
+    generateBouquet();
+
+    // Mostrar el botón de música.
+    musicButton.classList.remove("hidden");
+
+    // Iniciar la música de fondo.
+    playMusic();
 }
 
 // ========================================

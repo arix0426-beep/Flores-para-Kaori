@@ -293,3 +293,60 @@
     }
 }
 
+
+/* ========================================
+   LUCIÉRNAGAS DEL JARDÍN
+======================================== */
+
+@keyframes firefly-drift {
+    0%, 100% {
+        opacity: 0.15;
+        transform: translate(0, 0) scale(0.6);
+    }
+
+    25% {
+        opacity: 0.9;
+        transform: translate(8px, -10px) scale(1);
+    }
+
+    50% {
+        opacity: 0.35;
+        transform: translate(-5px, -18px) scale(0.8);
+    }
+
+    75% {
+        opacity: 1;
+        transform: translate(6px, -8px) scale(1.15);
+    }
+}
+
+.firefly-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.bouquet-svg {
+    position: relative;
+    z-index: 1;
+}
+
+.firefly-particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #f3d6ff;
+
+    box-shadow:
+        0 0 6px #e4caff,
+        0 0 14px rgba(193, 143, 255, 0.8),
+        0 0 24px rgba(167, 123, 218, 0.4);
+
+    animation: firefly-drift 5s ease-in-out infinite;
+}
+

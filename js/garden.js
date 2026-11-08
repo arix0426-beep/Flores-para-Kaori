@@ -236,8 +236,39 @@ function generateBouquet() {
         createFlower(svg, flower, index);
     });
 
-    garden.replaceChildren(svg);
+    // Crear la capa de luciérnagas.
+    const fireflyLayer = document.createElement("div");
+    fireflyLayer.classList.add("firefly-layer");
+
+    const fireflyPositions = [
+        { x: "8%", y: "20%", duration: "5s", delay: "0s" },
+        { x: "18%", y: "65%", duration: "6s", delay: "1s" },
+        { x: "28%", y: "12%", duration: "4.5s", delay: "2s" },
+        { x: "73%", y: "15%", duration: "5.5s", delay: "0.5s" },
+        { x: "88%", y: "35%", duration: "6.5s", delay: "1.5s" },
+        { x: "93%", y: "75%", duration: "5s", delay: "2.5s" },
+        { x: "12%", y: "85%", duration: "7s", delay: "3s" },
+        { x: "80%", y: "88%", duration: "4.8s", delay: "0.8s" },
+        { x: "42%", y: "8%", duration: "6s", delay: "1.8s" },
+        { x: "60%", y: "90%", duration: "5.2s", delay: "2.2s" }
+    ];
+
+    fireflyPositions.forEach(position => {
+        const firefly = document.createElement("span");
+
+        firefly.classList.add("firefly-particle");
+
+        firefly.style.left = position.x;
+        firefly.style.top = position.y;
+        firefly.style.animationDuration = position.duration;
+        firefly.style.animationDelay = position.delay;
+
+        fireflyLayer.appendChild(firefly);
+    });
+
+    garden.replaceChildren(fireflyLayer, svg);
     garden.dataset.generated = "true";
+
 }
 
 

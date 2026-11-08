@@ -1,0 +1,394 @@
+
+/* ========================================
+   FLORES PARA MERE
+   Identidad visual principal
+======================================== */
+
+/* Variables globales */
+
+:root {
+    color-scheme: dark;
+
+    --color-background: #171126;
+    --color-background-soft: #211735;
+
+    --color-purple: #a77bda;
+    --color-purple-light: #d7b9f5;
+    --color-lavender: #e8d8ff;
+
+    --color-text: #f5edff;
+    --color-text-soft: #c5b6d8;
+
+    --color-glass: rgba(255, 255, 255, 0.06);
+    --color-border: rgba(221, 190, 255, 0.18);
+
+    --shadow-purple: 0 0 35px rgba(167, 123, 218, 0.18);
+
+    --font-main: "Segoe UI", sans-serif;
+
+    --transition-normal: 0.4s ease;
+}
+
+
+/* Reinicio básico */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family: var(--font-main);
+    color: var(--color-text);
+
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            #34234e 0%,
+            transparent 65%
+        ),
+        var(--color-background);
+}
+
+
+/* Elementos generales */
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+}
+
+button:focus-visible {
+    outline: 2px solid var(--color-purple-light);
+    outline-offset: 5px;
+}
+
+
+/* Pantallas */
+
+.screen {
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* Bienvenida */
+
+#welcome {
+    text-align: center;
+}
+
+.welcome-content {
+    width: 100%;
+    max-width: 650px;
+
+    padding: 3rem 2rem;
+
+    background: var(--color-glass);
+    border: 1px solid var(--color-border);
+    border-radius: 28px;
+
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-purple);
+}
+
+.welcome-subtitle {
+    margin-bottom: 1.5rem;
+
+    color: var(--color-purple-light);
+    font-size: 0.95rem;
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+}
+
+.welcome-content h1 {
+    margin-bottom: 1.5rem;
+
+    font-size: clamp(2.4rem, 7vw, 4rem);
+    font-weight: 500;
+
+    color: var(--color-lavender);
+    text-shadow: 0 0 25px rgba(215, 185, 245, 0.25);
+}
+
+.welcome-description {
+    margin-bottom: 2.5rem;
+
+    color: var(--color-text-soft);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+
+/* Botones principales */
+
+#start-button,
+#next-phrase-button,
+#return-button {
+    padding: 0.9rem 2rem;
+
+    color: #251834;
+    background: linear-gradient(
+        135deg,
+        #e4caff,
+        #b98ce5
+    );
+
+    border-radius: 50px;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    box-shadow: 0 0 25px rgba(185, 140, 229, 0.2);
+
+    transition:
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal);
+}
+
+#start-button:hover,
+#next-phrase-button:hover,
+#return-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 35px rgba(185, 140, 229, 0.4);
+}
+
+
+/* Jardín */
+
+#garden {
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    padding-top: 5rem;
+}
+
+.garden-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.garden-header h2 {
+    margin-bottom: 0.8rem;
+
+    color: var(--color-lavender);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 500;
+}
+
+.garden-header p {
+    color: var(--color-text-soft);
+}
+
+
+/* Área de flores */
+
+#flower-garden {
+    position: relative;
+
+    width: 100%;
+    max-width: 900px;
+    min-height: 350px;
+
+    border: 1px solid var(--color-border);
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    box-shadow: inset 0 0 50px rgba(167, 123, 218, 0.06);
+}
+
+
+/* Frases */
+
+
+/* ========================================
+   SISTEMA DE FRASES
+======================================== */
+
+#phrase-container {
+    width: 100%;
+    max-width: 950px;
+    margin: 2.5rem 0 1rem;
+}
+
+#phrases-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+/* Tarjeta individual */
+.phrase-card {
+    min-height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.055);
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+
+    box-shadow:
+        inset 0 0 20px rgba(167, 123, 218, 0.035),
+        0 8px 25px rgba(0, 0, 0, 0.12);
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+
+    animation: phrase-appear 0.8s ease both;
+}
+
+.phrase-card:hover {
+    transform: translateY(-4px);
+    background: rgba(167, 123, 218, 0.12);
+    border-color: rgba(221, 190, 255, 0.35);
+}
+
+.phrase-card p {
+    color: var(--color-text-soft);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* ========================================
+   BOTÓN PARA MÁS FRASES
+======================================== */
+
+.more-phrases {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+
+    margin: 1.5rem 0 4rem;
+    text-align: center;
+}
+
+.more-phrases p {
+    color: var(--color-purple-light);
+    font-size: 1.05rem;
+    letter-spacing: 0.04rem;
+}
+
+#more-phrases-button {
+    padding: 0.9rem 2.2rem;
+
+    color: #251834;
+    background: linear-gradient(135deg, #e4caff, #b98ce5);
+
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+
+    box-shadow: 0 0 25px rgba(185, 140, 229, 0.2);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#more-phrases-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 35px rgba(185, 140, 229, 0.4);
+}
+
+#more-phrases-button:active {
+    transform: scale(0.96);
+}
+
+#more-phrases-button:focus-visible {
+    outline: 2px solid var(--color-purple-light);
+    outline-offset: 5px;
+}
+
+/* Control musical */
+
+.music-control {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+
+    width: 52px;
+    height: 52px;
+
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+
+    color: var(--color-lavender);
+    background: rgba(167, 123, 218, 0.15);
+
+    font-size: 1.5rem;
+
+    backdrop-filter: blur(10px);
+
+    transition: background var(--transition-normal);
+}
+
+.music-control:hover {
+    background: rgba(167, 123, 218, 0.3);
+}
+
+
+/* Dedicatoria final */
+
+#final-message {
+    text-align: center;
+}
+
+.final-content {
+    max-width: 650px;
+    width: 100%;
+
+    padding: 3rem 2rem;
+
+    border: 1px solid var(--color-border);
+    border-radius: 28px;
+
+    background: var(--color-glass);
+    box-shadow: var(--shadow-purple);
+}
+
+.final-content h2 {
+    margin-bottom: 2rem;
+
+    color: var(--color-lavender);
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 500;
+}
+
+#final-dedication {
+    margin-bottom: 2.5rem;
+
+    color: var(--color-text-soft);
+    font-size: 1.1rem;
+    line-height: 2;
+}
+

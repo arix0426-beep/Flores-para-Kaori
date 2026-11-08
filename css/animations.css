@@ -1,0 +1,155 @@
+
+/* ========================================
+   FLORES PARA KAORI
+   Sistema de animaciones
+======================================== */
+
+
+/* Aparición progresiva */
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Brillo mágico */
+
+@keyframes magical-glow {
+    0%, 100% {
+        box-shadow:
+            0 0 15px rgba(167, 123, 218, 0.1);
+    }
+
+    50% {
+        box-shadow:
+            0 0 35px rgba(167, 123, 218, 0.3);
+    }
+}
+
+
+/* Movimiento flotante */
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+/* Destello de luciérnaga */
+
+@keyframes firefly {
+    0%, 100% {
+        opacity: 0.15;
+        transform: scale(0.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+
+/* Aparición de las flores */
+
+@keyframes flower-bloom {
+    from {
+        opacity: 0;
+        transform: scale(0) rotate(-25deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+
+/* Movimiento de las flores */
+
+@keyframes flower-sway {
+    0%, 100% {
+        transform: rotate(-4deg);
+    }
+
+    50% {
+        transform: rotate(4deg);
+    }
+}
+
+
+/* Animación de las frases */
+
+@keyframes phrase-appear {
+    from {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+
+/* Aplicación de animaciones */
+
+.welcome-content {
+    animation: fade-in 1.5s ease both;
+}
+
+.welcome-content h1 {
+    animation: floating 5s ease-in-out infinite;
+}
+
+#start-button {
+    animation: magical-glow 4s ease-in-out infinite;
+}
+
+#garden {
+    animation: fade-in 1.2s ease both;
+}
+
+.flower {
+    animation:
+        flower-bloom 1.2s ease both,
+        flower-sway 4s ease-in-out infinite;
+}
+
+.firefly {
+    animation: firefly 3s ease-in-out infinite;
+}
+
+.phrase-visible {
+    animation: phrase-appear 1s ease both;
+}
+
+
+/* Respeto a preferencias de movimiento */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+

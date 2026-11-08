@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#171126">
+    <meta name="description" content="Un pequeño jardín creado especialmente para Mere.">
+
+    <title>Flores para Mere </title>
+
+    <link rel="icon" href="assets/images/favicon.png">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+    <!-- Pantalla de bienvenida -->
+    <section id="welcome" class="screen">
+        <div class="welcome-content">
+            <p class="welcome-subtitle">
+                Una pequeña sorpresa para ti
+            </p>
+
+            <h1>Un jardín para Kaori</h1>
+
+            <p class="welcome-description">
+                Hay cosas bonitas que merecen florecer...
+            </p>
+
+            <button id="start-button" type="button">
+                Abrir mi sorpresa
+            </button>
+        </div>
+    </section>
+
+    <!-- Jardín interactivo -->
+    <main id="garden" class="s creen hidden">
+
+        <header class="garden-header">
+            <h2>Un lugar especial</h2>
+            <p>Este pequeño jardín es para ti.</p>
+        </header>
+
+        <section id="flower-garden" aria-label="Jardín de flores">
+            <!-- Las flores se generarán mediante JavaScript -->
+        </section> 
+
+
+        <section id="phrase-container" aria-label="Frases para Kaori">
+
+            <div id="phrases-list">
+                <!-- Las frases se generarán dinámicamente -->
+            </div>
+
+        </section>
+
+        <div class="more-phrases">
+            <p>Aún hay más frases...</p>
+
+            <button id="more-phrases-button" type="button">
+                Más frases
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Control de música -->
+    <button
+        id="music-button"
+        class="music-control hidden"
+        type="button"
+        aria-label="Activar o pausar música"
+    >
+        ♫
+    </button>
+
+    <audio id="background-music" loop preload="none">
+        <source src="assets/audio/musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Dedicatoria final -->
+    <section id="final-message" class="screen hidden">
+        <div class="final-content">
+            <h2>Para ti, Kaori</h2>
+
+            <p id="final-dedication">
+                <!-- Aquí aparecerá la dedicatoria -->
+            </p>
+
+            <button id="return-button" type="button">
+                Volver al jardín
+            </button>
+        </div>
+    </section>
+
+    <script src="js/phrases.js" defer></script>
+    <script src="js/garden.js" defer></script>
+    <script src="js/music.js" defer></script>
+    <script src="js/main.js" defer></script>
+
+</body>
+</html>
+
